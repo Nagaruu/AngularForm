@@ -19,9 +19,9 @@ export class FormComponent {
     this.studentForm = this.formBuilder.group({
       id: [],
       name: ['', [Validators.required]],
-      dob: [''],
-      phoneNumber: ['', []],
-      email: ['', [Validators.required]]
+      dob: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
+      email: ['']
     });
   }
 
