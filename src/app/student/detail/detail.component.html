@@ -1,0 +1,10 @@
+<!-- detail.component.html -->
+<div *ngIf="submittedData">
+    <h2>Submitted Data:</h2>
+    <div *ngFor="let item of submittedData">
+        <p>Name: {{ item.name }}</p>
+        <p>Phone: {{ item.phoneNumber }}</p>
+        <p>Birthdate: {{ item.dob }}</p>
+        --------------------------------------------------------------------------------------------------
+    </div>
+</div>
