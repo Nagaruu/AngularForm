@@ -1,23 +1,40 @@
-<div>
-    <form class="form-group" (ngSubmit)="handleFormSubmit()" [formGroup]="studentForm">
-      <table>
-        <tr>
-          <td>Name</td>
-          <td><input class="form-control" formControlName="name" type="text">
-          </td>
-  
-        </tr>
-        <tr>
-          <td>Sdt</td>
-          <td><input class="form-control" formControlName="phoneNumber" type="text">
-          </td>
-        </tr>
-        <tr>
-          <td>Ngày sinh</td>
-          <td><input class="form-control" formControlName="dob" type="text">
-          </td>
-        </tr>
-      </table>
-      <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
+
+<!-- form.component.html -->
+<form class="form-group" [formGroup]="studentForm" (ngSubmit)="handleFormSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input class="form-control" type="text" id="name" formControlName="name" />
+    <div *ngIf="studentForm.get('email')?.touched && studentForm.get('name')?.errors">
+      Name is required.
+    </div>
   </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input class="form-control" type="email" id="email" formControlName="email" />
+    <div *ngIf="studentForm.get('email')?.hasError('required') && studentForm.get('email')?.touched">
+      Email is required.
+    </div>
+    <div *ngIf="studentForm.get('email')?.hasError('email') && studentForm.get('email')?.touched">
+      Please enter a valid email.
+    </div>
+  </div>
+
+  <div>
+      <label for="dob">Birth Date:</label>
+      <input class="form-control" type="date" id="dob" formControlName="dob" />
+      <div *ngIf="studentForm.get('dob')?.hasError('required') && studentForm.get('dob')?.touched">
+          Birth Date is required.
+      </div>
+  </div>
+
+  <div>
+      <label for="phoneNumber">Phone:</label>
+      <input class="form-control" type="text" id="phoneNumber" formControlName="phoneNumber"/>
+      <div *ngIf="studentForm.get('phoneNumber')?.hasError('pattern') && studentForm.get('phoneNumber')?.touched">
+          Phone is inValid.
+      </div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

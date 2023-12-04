@@ -21,6 +21,7 @@ export class FormComponent {
       name: ['', [Validators.required]],
       dob: [''],
       phoneNumber: ['', []],
+      email: ['', [Validators.required]]
     });
   }
 
@@ -42,7 +43,7 @@ export class FormComponent {
 
     // PUT
     if (this.studentForm.get('id')) {
-      this.dataService.update(2, this.studentForm.getRawValue()).subscribe(() => {});
+      this.dataService.update(6, this.studentForm.getRawValue()).subscribe(() => {});
     }
 
     // DELETE

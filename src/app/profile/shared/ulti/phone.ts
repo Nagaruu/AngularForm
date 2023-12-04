@@ -1,15 +1,13 @@
-export const phoneFormat = (input: string | number) => {
-    if (!input || isNaN(Number(input)))
-      return `input must be a number was sent ${input}`;
-    if (typeof input !== 'string') input = input.toString();
+export const phoneFormat = (input: string | number): string => {
+    const inputStr = typeof input === 'number' ? input.toString() : input;
   
-    if (input.length === 10) {
-      return input.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-    } else if (input.length < 10) {
-      return 'was not supplied enough numbers please pass a 10 digit number';
-    } else if (input.length > 10) {
-      return 'was supplied too many numbers please pass a 10 digit number';
+    if (!inputStr || isNaN(Number(inputStr)))
+      return `input must be a number was sent ${inputStr}`;
+  
+    if (inputStr.length === 10) {
+      return inputStr.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
     } else {
-      return 'something went wrong';
+      return 'Please pass a 10-digit number';
     }
   };
+  
