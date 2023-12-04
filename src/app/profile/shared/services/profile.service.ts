@@ -33,7 +33,7 @@ export class DataService {
     return this.httpClient.put<any>(`http://localhost:3000/profile/${id}`, {...data});
   }
 
-  delete(id:any) {
+  delete(id:number) {
     return this.httpClient.delete<any>(`http://localhost:3000/profile/${id}`);
   }
 }

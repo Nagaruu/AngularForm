@@ -48,7 +48,7 @@ export class FormComponent {
 
     // DELETE
     if (this.studentForm.get('id')) {
-      this.dataService.delete(4).subscribe(() => {});
+      this.dataService.delete(5).subscribe(() => {});
     }
 
     this.dataService.setData(this.studentForm.value);
