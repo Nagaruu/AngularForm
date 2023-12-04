@@ -14,9 +14,9 @@ export class DetailComponent {
   }
 
   ngOnInit() {
+    // GET
     this.dataService.getAll().subscribe((e) => {
       this.submittedData = e;
     });
   }
-  
 }

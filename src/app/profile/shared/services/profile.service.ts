@@ -28,4 +28,12 @@ export class DataService {
   create(data: IProfile) {
     return this.httpClient.post<any>('http://localhost:3000/profile', {...data});
   }
+
+  update(id:any, data: IProfile) {
+    return this.httpClient.put<any>(`http://localhost:3000/profile/${id}`, {...data});
+  }
+
+  delete(id:any) {
+    return this.httpClient.delete<any>(`http://localhost:3000/profile/${id}`);
+  }
 }
